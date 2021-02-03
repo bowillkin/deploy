@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: devops-argocd-test
+  name: devops-argocd-test
+  namespace: default
+spec:
+  minReadySeconds: 60
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: devops-argocd-test
+  template:
+    metadata:
+      labels:
+        app: devops-argocd-test
+    spec:
+      containers:
+        - name: devops-argocd-test
+          image: registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: tcp-8080
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: devops-argocd-test
+  name: devops-argocd-test
+  namespace: default
+spec:
+  ports:
+    - name: tcp-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: devops-argocd-test
+  sessionAffinity: None
+  type: NodePort
