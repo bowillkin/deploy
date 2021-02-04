@@ -46,6 +46,11 @@ spec:
             initialDelaySeconds: 20
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            {{- range $key, $val := .Values.appconfig }}
+            - name: HUBPD_{{ $key | upper }}
+              value: {{ $val | quote }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
