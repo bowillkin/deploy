@@ -1,7 +1,7 @@
 grpc:
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/will_default/ipip-grpc
-    tag: '1612427926528'
+    tag: '1612430424954'
 
 #  migrateJob:
 #    enabled: true
