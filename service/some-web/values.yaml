@@ -1,0 +1,20 @@
+web:
+  image:
+    repository: registry.cn-hangzhou.aliyuncs.com/will_default/some-web
+    tag: '1612430478558'
+
+#  migrateJob:
+#    enabled: true
+
+  appconfig:
+#    consumergroupid: mp
+#    dbdsn: mp:mp@tcp(stage-tidb-cluster.dm:4000)/mp?parseTime=True&loc=Asia%2FShanghai
+#    dbmaxidleconns: 64
+#    dbmaxopenconns: 64
+#    grpcserveraddress: 0.0.0.0:5000
+#    kafkahosts: kafka-logging-kafka-bootstrap.kafka.svc:9092
+#    sentrydsn: http://62e68a6e6731474989feb78a17f8cbd6@sentry.dm/7
+#
+#    redisdsn: stage-redis-001:7000,stage-redis-001:7001,stage-redis-001:7002
+#    redispassword: rvfJha712wZ1CDkv
+#    redisprefix: mp_
