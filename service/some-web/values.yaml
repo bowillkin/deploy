@@ -3,8 +3,14 @@ web:
     repository: registry.cn-hangzhou.aliyuncs.com/will_default/some-web
     tag: '1612430478558'
 
-#  migrateJob:
-#    enabled: true
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: someweb.bowillkin.com
+        paths:
+          - /
 
   appconfig:
 #    consumergroupid: mp
