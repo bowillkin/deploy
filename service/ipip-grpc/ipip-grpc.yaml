@@ -1,0 +1,45 @@
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  labels:
+#    app: ipip-grpc
+#  name: ipip-grpc
+#  namespace: default
+#spec:
+#  minReadySeconds: 60
+#  progressDeadlineSeconds: 600
+#  replicas: 1
+#  revisionHistoryLimit: 5
+#  selector:
+#    matchLabels:
+#      app: ipip-grpc
+#  template:
+#    metadata:
+#      labels:
+#        app: ipip-grpc
+#    spec:
+#      containers:
+#        - name: ipip-grpc
+#          image: registry.cn-hangzhou.aliyuncs.com/will_default/ipip-grpc:1612417426513
+#          imagePullPolicy: Always
+#          ports:
+#            - containerPort: 80
+#              name: tcp-80
+#              protocol: TCP
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  labels:
+#    app: ipip-grpc
+#  name: ipip-grpc
+#  namespace: default
+#spec:
+#  ports:
+#    - name: tcp-80
+#      port: 80
+#      protocol: TCP
+#      targetPort: 80
+#  selector:
+#    app: ipip-grpc
+#  type: NodePort
